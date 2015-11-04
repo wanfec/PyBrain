@@ -16,15 +16,16 @@
 	trndata._convertToOneOfMany( )
 	tstdata._convertToOneOfMany( )
 	
-4、用buildNetwork()快速创建一个前馈网络
+###4、例子
+用buildNetwork()快速创建一个前馈网络
 
 	fnn =buildNetwork(trndata.indim, 5,trndata.outdim,outclass=SoftmaxLayer)
 	
-5、用反向传播算法训练
+用反向传播算法训练
 
 	trainer =BackpropTrainer(fnn,dataset=trndata,momentum=0.1,verbose=True,weightdecay=0.01)
 	
-6、可视化
+可视化
 	
 	ticks =arange(-3.,6.,0.2)
 	X,Y =meshgrid(ticks,ticks)
@@ -34,7 +35,7 @@
 		griddata.addSample([X.ravel()[i],Y.ravel()[i]],[0])
 	griddata._convertToOneOfMany()  # this is still needed to make the fnn feel comfy
 
-7、开始训练
+开始训练
 	
 	for i in range(20):
      trainer.trainEpochs( 1 )  # 训练一代
